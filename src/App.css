@@ -1,8 +1,17 @@
 
 
+.testcolor{
+  color:rgb(255, 0, 0);
+}
+
+
+.testcolor2{
+  color:rgb(255, 0, 0);
+  background-color: rgb(205, 50, 89);
+}
 
 body {
-  background: black;
+  background: rgb(0, 0, 0);
 
   text-transform: uppercase;
   border: none;
