@@ -7,6 +7,9 @@ import CheckoutForm from "./components/CheckoutForm";
 import "antd/dist/antd.css";
 import { FaGit, FaGithub, FaGitHub, FaCartPlus } from "react-icons/fa";
 import { AiOutlineHome } from "react-icons/ai";
+import { BsExclamationOctagonFill } from "react-icons/bs";
+
+
 import Landing from "./components/Landing"
 import "./App.css";
 
@@ -30,8 +33,8 @@ function App() {
 
 
   let message
-  if (cart.length === 4) {
-    message = <div className="testcolor2"> Exceed Max Limit </div>
+  if (cart.length === 3) {
+    message = <div className="testcolor2"> 3 Units per Customer Exceeded Buy Limit </div>
 
     console.log(this.state.box)
   }
@@ -43,16 +46,18 @@ function App() {
 
   return (
     <div className="Shopy">
+
+
+
       <Router>
-<div>
-{cart.length >= 5 && <h1 className="testcolor2"> Exceed Max Limit </h1>}
-
-
-</div>
 
 
 
         <NavLink exact to="/">
+
+
+
+
           <AiOutlineHome
             style={{ color: "blue", size: "50px" }}
             className="homeButton"
@@ -78,6 +83,19 @@ function App() {
 
           <h1>
             Shopy <span role="img"></span>
+
+            <div>
+              {cart.length >= 3 && <h1 className="testcolor2"> 3 units per customer Exceeded Buy Limit
+
+
+                < BsExclamationOctagonFill   ></BsExclamationOctagonFill>
+
+
+              </h1>}
+
+
+
+            </div>
           </h1>
 
 

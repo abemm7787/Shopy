@@ -160,5 +160,9 @@
     "presets": [
       "react-app"
     ]
-  }
+  },
+  "main": "index.js",
+  "repository": "git@github.com:abemm7787/Shopy.git",
+  "author": "<mirambeaux7@gmail.com>",
+  "license": "MIT"
 }

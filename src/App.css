@@ -2,12 +2,20 @@
 
 .testcolor{
   color:rgb(255, 0, 0);
+  display: flex;
+  justify-content: space-between;
 }
 
 
 .testcolor2{
   color:rgb(255, 0, 0);
-  background-color: rgb(205, 50, 89);
+  color:rgb(255, 0, 0);
+  display: flex;
+
+  justify-content: space-between;
+  font-size: 15px;
+
+
 }
 
 body {
@@ -62,7 +70,21 @@ h1 {
   font-size: 2rem;
 }
 
+
+.card-mix::before{
+ content:'';
+  background-color: rgb(126, 179, 14);
+
+}
+
+.card-mix:hover::after{
+
+  background-color: rgb(219, 231, 194);
+}
+
+
 .card-mix {
+
   margin-left: 40px;
   margin-right: 40px;
   background: rgba(255, 255, 255, 0.178);
@@ -601,3 +623,7 @@ border-top: 1px solid rgba(255,255,255, 0.1 );
 border-top: 1px solid rgba(255,255,255, 0.1 );
 transform: rotate(25deg)
 }
+
+
+
+

@@ -31,11 +31,13 @@ export default class PlantList extends Component {
       <main className="plant-list">
         {this.state?.plants?.map((plant) => (
         
-        <Tilt style={{ glare: false }}    >
-        <div  style={{ glareEnable: false  }}   className="plant-card" key={plant.id} data-testid="plant-card">
+        <Tilt style={{ glare: true }}    >
+        <div  style={{ glareEnable: true  }}   className="plant-card" key={plant.id} data-testid="plant-card">
          
               <div         className="card-mix">
                 <div        className="plant-details">
+
+                  
                   <img
                     className="plant-image"
                     src={plant.img}
