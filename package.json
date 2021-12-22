@@ -104,6 +104,7 @@
     ]
   },
   "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.16.5",
     "@sheerun/mutationobserver-shim": "^0.3.3",
     "eslint": "^8.5.0",
     "msw": "^0.21.3",
