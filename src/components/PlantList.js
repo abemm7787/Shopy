@@ -6,9 +6,6 @@ import Tilt from "react-parallax-tilt";
 import { FaTruckMoving } from "react-icons/fa";
 //import Title from 'react-vanilla-tilt'
 
-
-
-
 export default class PlantList extends Component {
   // add state with a property called "plants" - initialize as an empty array
   state = {
@@ -30,14 +27,15 @@ export default class PlantList extends Component {
     return (
       <main className="plant-list">
         {this.state?.plants?.map((plant) => (
-        
-        <Tilt style={{ glare: true }}    >
-        <div  style={{ glareEnable: true  }}   className="plant-card" key={plant.id} data-testid="plant-card">
-         
-              <div         className="card-mix">
-                <div        className="plant-details">
-
-                  
+          <Tilt style={{ glare: true }}>
+            <div
+              style={{ glareEnable: true }}
+              className="plant-card"
+              key={plant.id}
+              data-testid="plant-card"
+            >
+              <div className="card-mix">
+                <div className="plant-details">
                   <img
                     className="plant-image"
                     src={plant.img}
@@ -66,14 +64,8 @@ export default class PlantList extends Component {
                   </div>
                 </div>
               </div>
-
-
-
-              
-           
-          </div>
+            </div>
           </Tilt>
-
         ))}
       </main>
     );
