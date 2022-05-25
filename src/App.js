@@ -6,14 +6,17 @@ import ShoppingCart from "./components/ShoppingCart";
 import CheckoutForm from "./components/CheckoutForm";
 import "antd/dist/antd.css";
 import { FaGit, FaGithub, FaGitHub, FaCartPlus } from "react-icons/fa";
+import { AiOutlineHome } from "react-icons/ai";
+import { BsExclamationOctagonFill } from "react-icons/bs";
+
+
+import Landing from "./components/Landing"
 import "./App.css";
-
-
 
 function App() {
   // array of plants that have been added to the cart
   const [cart, setCart] = useState([]);
-
+  console.log(cart)
   // add a plant to the cart
   const addToCart = (plant) => {
     setCart([...cart, plant]);
@@ -24,35 +27,78 @@ function App() {
     setCart(cart.filter((p) => p.id !== plant.id));
   };
 
+
+
+
+
+
+  let message
+  if (cart.length === 3) {
+    message = <div className="testcolor2"> 3 Units per Customer Exceeded Buy Limit </div>
+
+    console.log(this.state.box)
+  }
+
+
+  else {
+    message = <div className="testcolor"> Welecome Guest</div>
+  }
+
   return (
-    <div className="Shoppy">
-      <Router>       
+    <div className="Shopy">
+
+
+
+      <Router>
+
+
+
+        <NavLink exact to="/">
+
+
+
+
+          <AiOutlineHome
+            style={{ color: "blue", size: "50px" }}
+            className="homeButton"
+          >
+            <a href="/" className="homeButton">
+              Home
+            </a>
+          </AiOutlineHome>
+        </NavLink>
+
         <nav className="container">
           <div class="text-box">
-            <NavLink exact to="/">
-              <a href="/" class="btn btn-white btn-animate">
-                click me
-              </a>
-            </NavLink>
-          </div>
-
-          <div class="text-box">
             <NavLink to="/cart">
-           
-              <a href="/cart" class="btn btn-white btn-animate">
+              <a href="/cart" class="btn ">
                 Cart
                 <h3 data-testid="cart-badge2" className="cart-badge">
-                <FaCartPlus className="fa-button-carts "/>
+                  <FaCartPlus className="fa-button-carts " />
                   {cart.length > 0 && cart.length}
                 </h3>
-              </a> 
+              </a>
             </NavLink>
           </div>
 
           <h1>
             Shopy <span role="img"></span>
+
+            <div>
+              {cart.length >= 3 && <h1 className="testcolor2"> 3 units per customer Exceeded Buy Limit
+
+
+                < BsExclamationOctagonFill   ></BsExclamationOctagonFill>
+
+
+              </h1>}
+
+
+
+            </div>
           </h1>
-          <ul></ul>
+
+
         </nav>
 
         <Route
@@ -61,24 +107,28 @@ function App() {
           render={() => <PlantList addToCart={addToCart} />}
         />
 
-
         <Route
           path="/cart"
+
           render={(props) => (
             <ShoppingCart
               {...props}
               cart={cart}
               removeFromCart={removeFromCart}
             />
+
+
+
           )}
         />
         <Route path="/checkout" component={CheckoutForm} />
+
+
+        <Route path="/landing" component={Landing} />
+
       </Router>
     </div>
   );
 }
 
 export default App;
-
-
-

@@ -66,17 +66,20 @@ const CheckoutForm = (props) => {
           Zip:
           <input name="zip" value={values.zip} onChange={handleChanges} />
         </label>
-        <button>Checkout</button>
+        <button  className="checkout">Checkout</button>
       </form>
 
       {showSuccessMessage && (
         <div className="success-message" data-testid="successMessage">
           <p>
-            You have ordered some plants! Woo-hoo! <span role="img">🎉</span>
+            You have ordered the coolest Phones ever! <span role="img"></span>
           </p>
-          <p>Your new green friends will be shipped to:</p>
+         
           <br />
           <br />
+
+          <div className="Thanks"> Thank You </div>
+          <p>Your new smart devices will be shipped to:</p>
           <p>
             {values.firstName} {values.lastName}
           </p>
