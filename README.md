@@ -3,10 +3,6 @@
 
 In this project, you will add class components to your a basic ecommerce site that allow you to request product data from a server and render that data. You will also implement the ablitity to add products to a shopping cart.
 
-In meeting the minimum viable product (MVP) specifications listed below, your project should look like the solution examples below:
-
-
-t. 
 #### Shopping Cart
 
   Nothing needs to be done here. You _will_ have to navigate to the cart page in your app so you can go to the checkout form for the next step.
