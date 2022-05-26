@@ -1,12 +1,13 @@
+# eCommerce Website Design with Tailwind CSS
 
-## Introduction
+This repository is a part of a tutorial on my [YouTube channel](https://www.youtube.com/channel/UC43N9Z8Fm0gg1Lgpw0eS9rg).
 
-In this project, you will add class components to your a basic ecommerce site that allow you to request product data from a server and render that data. You will also implement the ablitity to add products to a shopping cart.
+It is created with Tailwind CSS and static HTML. 
 
-#### Shopping Cart
+## Screenshots
+![](./web-ui.png)
+![](./web-ui1.png)
 
-  Nothing needs to be done here. You _will_ have to navigate to the cart page in your app so you can go to the checkout form for the next step.
+## YouTube Tutorial
 
-
-**Notes:**
-* Again, unlike other projects, the local server used here can not be accessed through the browser.  Test the functioning of the server directly through your axios calls.
+[![Design Responsive cCommerce Website with Tailwind CSS](https://img.youtube.com/vi/iNDvh7O2WZM/0.jpg)](https://youtu.be/iNDvh7O2WZM)
