@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Learn Tailwind CSS</title>
+  <title>CaVA Web 3.0</title>
   <link rel="stylesheet" href="./css/tailwind.css" />
 </head>
 
@@ -13,15 +13,15 @@
   <div class="container mx-auto p-5">
     <div class="md:flex md:flex-row md:justify-between text-center text-sm sm:text-base">
       <div class="flex flex-row justify-center">
-        <div class="bg-gradient-to-r from-purple-400 to-red-400 w-10 h-10 rounded-lg"></div>
-        <h1 class="text-3xl text-gray-600 ml-2">CaVa</h1>
+        <!-- <div class="bg-gradient-to-r from-purple-400 to-red-400 w-10 h-10 rounded-lg"></div> -->
+        <h1 class="text-4xl text-red-400 ml-2">CaVa</h1>
       </div>
       <div class="mt-2">
         <a href="#" class="text-gray-600 hover:text-purple-600 p-4 px-3 sm:px-4">Home</a>
         <a href="#" class="text-gray-600 hover:text-purple-600 p-4 px-3 sm:px-4">Shop</a>
         <a href="#" class="text-gray-600 hover:text-purple-600 p-4 px-3 sm:px-4">Blog</a>
         <a href="#" class="text-gray-600 hover:text-purple-600 p-4 px-3 sm:px-4">Contact</a>
-        <a class="smartCart"> <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 sm:h-6 sm:w-6 inline-block"
+        <a class="smartCart" href="cart.html"> <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 sm:h-6 sm:w-6 inline-block"
             fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
               d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
@@ -39,15 +39,32 @@
           Here</h2>
         <p class="uppercase text-gray-600 tracking-wide text-center md:self-start md:text-left">Our brand.</p>
         <p class="uppercase text-gray-600 tracking-wide text-center md:self-start md:text-left">Our motto, is always
-          adhere to trend .</p>
+          here to trend.</p>
         <a href="#"
           class="bg-gradient-to-r from-red-600 to-pink-500 rounded-full py-4 px-8 text-gray-50 uppercase text-xl md:self-start my-5">Shop
           Now</a>
       </div>
       <div class="md:w-3/5">
-        <img src="./images/savant.jpg" class="w-full" />
+        <img src="./images/savant.jpg" id="mainPhoto" class="w-full" />
       </div>
-    </div><!-- Hero sectioin -->
+    </div>
+      <!-- Hero sectioin -->
+      <script>
+        let images = [ './images/products/banner.jpg', './images/products/banner2.jpg', './images/products/banner3.jpg','./images/products/banner4.jpg','./images/products/savant.jpg'];
+        let index = 0;
+        const imgElement = document.getElementById('mainPhoto');
+        function change() { 
+           imgElement.src = images[index];
+           index > 1 ? index = 0 : index++;
+        }
+        
+        window.onload = function () {
+            setInterval(change, 5000);
+        };
+        
+            </script>
+          
+  
 
     <div class="my-20">
       <div class="flex flex-row justify-between my-5">
@@ -60,10 +77,13 @@
           </svg>
         </a>
       </div>
+
+     
+      
       <div class="grid grid-flow-row grid-cols-1 md:grid-cols-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10">
         <div class="shadow-lg rounded-l py-3 transform transition hover:bg-indigo-50 hover:-translate-y-0.5 text-sm">
           <a href="#">
-            <img src="./images/products/men/product1.jpg" class="rounded-tl-lg rounded-tr-lg" />
+            <img src="./images/products/product1.jpg" class=" image rounded-tl-lg rounded-tr-lg" />
           </a>
           <div class="p-5">
 
@@ -71,6 +91,7 @@
             <div class="flex flex-column justify-between">
               <h3><a href="#">Mens T-Shirt</a> </h3>
               <div>Price <a class="price">$23</a></div>
+              
             </div>
 
             <div class="flex flex-row my-3">
@@ -88,8 +109,8 @@
               <a class="border-gray-300 border-2 text-gray-400 rounded-md px-2 py-1 mr-2 text-xs" href="#">S</a>
             </div>
             <div class="flex flex-col xl:flex-row justify-between">
-              <a class="add-carts cart1 bg-gradient-to-r from-red-600 to-pink-500 rounded-full py-2 px-4 my-2 text-sm text-white hover:bg-pink-600 hover:from-pink-600 hover:to-pink-600 flex flex-row justify-center"
-                href="#">
+              <a class="cursor-pointer add-carts cart1 bg-gradient-to-r from-red-600 to-pink-500 rounded-full py-2 px-4 my-2 text-sm text-white hover:bg-pink-600 hover:from-pink-600 hover:to-pink-600 flex flex-row justify-center"
+                >
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" fill="none" viewBox="0 0 24 24"
                   stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -97,8 +118,8 @@
                 </svg>
                 Add to cart
               </a>
-              <a class="bg-purple-600 rounded-full py-2 px-4 my-2 text-sm text-white hover:bg-purple-700 flex flex-row justify-center"
-                href="#">
+              <a id="myBtn" class="cursor-pointer bg-purple-600 rounded-full py-2 px-4 my-2 text-sm text-white hover:bg-purple-700 flex flex-row justify-center"
+         >  
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
                   <path fill-rule="evenodd"
                     d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z"
@@ -106,15 +127,29 @@
                 </svg>
                 View Details
               </a>
+            
             </div>
+          </div>
+          
+        </div>
+       
+        <div id="myModal" class="modal flex ">  
+          <div class="modal-content"> 
+            <span class="close">&times</span>
+            <p> Some tex in the modal</p>
+            <a class="border-gray-300 border-2 text-gray-400 rounded-md px-2 py-1 mr-2 text-xs" href="#">XL</a>
+         
+         
           </div>
         </div>
 
 
 
+
+      
         <div class="shadow-lg rounded-lg py-3 transform transition hover:bg-indigo-50 hover:-translate-y-0.5 text-sm">
-          <a href="#">
-            <img src="./images/products/men/product2.jpg" class="rounded-tl-lg rounded-tr-lg" />
+          <a  id = "contactUs">
+            <img src="./images/products/product2.jpg" class="rounded-tl-lg rounded-tr-lg" />
           </a>
           <div class="p-5">
             <div class="flex flex-column justify-between">
@@ -136,8 +171,8 @@
               <a class="border-gray-300 border-2 text-gray-400 rounded-md px-2 py-1 mr-2 text-xs" href="#">S</a>
             </div>
             <div class="flex flex-col xl:flex-row justify-between">
-              <a class="add-carts cart2 bg-gradient-to-r from-red-600 to-pink-500 rounded-full py-2 px-4 my-2 text-sm text-white hover:bg-pink-600 hover:from-pink-600 hover:to-pink-600 flex flex-row justify-center"
-                href="#">
+              <a class="cursor-pointer add-carts cart2 bg-gradient-to-r from-red-600 to-pink-500 rounded-full py-2 px-4 my-2 text-sm text-white hover:bg-pink-600 hover:from-pink-600 hover:to-pink-600 flex flex-row justify-center"
+                >
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" fill="none" viewBox="0 0 24 24"
                   stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -146,8 +181,8 @@
                 Add to cart
               </a>
               <a> </a>
-              <a class="bg-purple-600 rounded-full py-2 px-4 my-2 text-sm text-white hover:bg-purple-700 flex flex-row justify-center"
-                href="#">
+              <a id="myBtn2" class="cursor-pointer bg-purple-600 rounded-full py-2 px-4 my-2 text-sm text-white hover:bg-purple-700 flex flex-row justify-center"
+              >
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
                   <path fill-rule="evenodd"
                     d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z"
@@ -155,13 +190,21 @@
                 </svg>
                 View Details
               </a>
+             
+              </div>
             </div>
+            <div id="myModal2" class="modal">  
+              <div class="modal-content"> 
+                <span class="close2">&times</span>
+                <p> Some tex in the modal</p>
+              </div>
           </div>
-        </div>
+          </div>
+      
 
         <div class="shadow-lg rounded-lg py-3 transform transition hover:bg-indigo-50 hover:-translate-y-0.5 text-sm">
           <a href="#">
-            <img src="./images/products/men/product3.jpg" class="rounded-tl-lg rounded-tr-lg" />
+            <img src="./images/products/product3.jpg" class="rounded-tl-lg rounded-tr-lg" />
           </a>
           <div class="p-5">
             <div class="flex flex-column justify-between">
@@ -183,8 +226,8 @@
               <a class="border-gray-300 border-2 text-gray-400 rounded-md px-2 py-1 mr-2 text-xs" href="#">S</a>
             </div>
             <div class="flex flex-col xl:flex-row justify-between">
-              <a class="add-carts cart3 bg-gradient-to-r from-red-600 to-pink-500 rounded-full py-2 px-4 my-2 text-sm text-white hover:bg-pink-600 hover:from-pink-600 hover:to-pink-600 flex flex-row justify-center"
-                href="#">
+              <a class=" cursor-pointer add-carts cart3 bg-gradient-to-r from-red-600 to-pink-500 rounded-full py-2 px-4 my-2 text-sm text-white hover:bg-pink-600 hover:from-pink-600 hover:to-pink-600 flex flex-row justify-center"
+             >
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" fill="none" viewBox="0 0 24 24"
                   stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -192,8 +235,8 @@
                 </svg>
                 Add to cart
               </a>
-              <a class="bg-purple-600 rounded-full py-2 px-4 my-2 text-sm text-white hover:bg-purple-700 flex flex-row justify-center"
-                href="#">
+              <a id="myBtn3" class="cursor-pointer bg-purple-600 rounded-full py-2 px-4 my-2 text-sm text-white hover:bg-purple-700 flex flex-row justify-center"
+            >
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
                   <path fill-rule="evenodd"
                     d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z"
@@ -203,12 +246,18 @@
               </a>
             </div>
           </div>
+          <div id="myModal3" class="modal">  
+            <div class="modal-content"> 
+              <span class="close">&times</span>
+              <p> Some tex in the modal</p>
+            </div>
+          </div>
         </div>
 
         <div
           class="shadow-lg rounded-lg py-3 pointer-events-auto transform transition hover:bg-indigo-50 hover:-translate-y-0.5 text-sm">
           <a href="#">
-            <img src="./images/products/men/product4.jpg" class="rounded-tl-lg rounded-tr-lg" />
+            <img src="./images/products/product4.jpg" class="rounded-tl-lg rounded-tr-lg" />
           </a>
           <div class="p-5">
             <div class="flex flex-column justify-between">
@@ -230,8 +279,8 @@
               <a class="border-gray-300 border-2 text-gray-400 rounded-md px-2 py-1 mr-2 text-xs" href="#">S</a>
             </div>
             <div class="flex flex-col xl:flex-row justify-between">
-              <a class="add-carts cart4 bg-gradient-to-r from-red-600 to-pink-500 rounded-full py-2 px-4 my-2 text-sm text-white hover:bg-pink-600 hover:from-pink-600 hover:to-pink-600 flex flex-row justify-center"
-                href="#">
+              <a class=" cursor-pointer add-carts cart4 bg-gradient-to-r from-red-600 to-pink-500 rounded-full py-2 px-4 my-2 text-sm text-white hover:bg-pink-600 hover:from-pink-600 hover:to-pink-600 flex flex-row justify-center"
+             >
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" fill="none" viewBox="0 0 24 24"
                   stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -239,21 +288,29 @@
                 </svg>
                 Add to cart
               </a>
-              <a class="bg-purple-600 rounded-full py-2 px-4 my-2 text-sm text-white hover:bg-purple-700 flex flex-row justify-center"
-                href="#">
+              <a id="myBtn4"  href="#contactUs" class="cursor-pointer bg-purple-600 rounded-full py-2 px-4 my-2 text-sm text-white hover:bg-purple-700 flex flex-row justify-center"
+                >
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
                   <path fill-rule="evenodd"
                     d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z"
                     clip-rule="evenodd" />
                 </svg>
                 View Details
+               
               </a>
             </div>
           </div>
         </div>
+        <div id="myModal" class="modal2">  
+          <div class="modal-content"> 
+            <span class="close">&times</span>
+            <p> Some tex in the modal</p>
+          </div>
+        </div>
       </div>
+      
+     
     </div> <!-- Men's Collection Section -->
-
 
     <div class="my-20">
       <div class="flex flex-row justify-between my-5">
@@ -269,7 +326,7 @@
       <div class="grid grid-flow-row grid-cols-1 md:grid-cols-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10">
         <div class="shadow-lg rounded-lg py-3 transform transition hover:bg-indigo-50 hover:-translate-y-0.5 text-sm">
           <a href="#">
-            <img src="./images/products/women/product1.jpg" class="rounded-tl-lg rounded-tr-lg" />
+            <img src="./images/products/wproduct1.jpg" class="rounded-tl-lg rounded-tr-lg" />
           </a>
           <div class="p-5">
             <div class="flex flex-column justify-between">
@@ -291,8 +348,8 @@
               <a class="border-gray-300 border-2 text-gray-400 rounded-md px-2 py-1 mr-2 text-xs" href="#">S</a>
             </div>
             <div class="flex flex-col xl:flex-row justify-between">
-              <a class="add-carts cart5 bg-gradient-to-r from-red-600 to-pink-500 rounded-full py-2 px-4 my-2 text-sm text-white hover:bg-pink-600 hover:from-pink-600 hover:to-pink-600 flex flex-row justify-center"
-                href="#">
+              <a class="cursor-pointer add-carts cart5 bg-gradient-to-r from-red-600 to-pink-500 rounded-full py-2 px-4 my-2 text-sm text-white hover:bg-pink-600 hover:from-pink-600 hover:to-pink-600 flex flex-row justify-center"
+                >
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" fill="none" viewBox="0 0 24 24"
                   stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -300,8 +357,8 @@
                 </svg>
                 Add to cart
               </a>
-              <a class="bg-purple-600 rounded-full py-2 px-4 my-2 text-sm text-white hover:bg-purple-700 flex flex-row justify-center"
-                href="#">
+              <a id="myBtn5" class="cursor-pointer bg-purple-600 rounded-full py-2 px-4 my-2 text-sm text-white hover:bg-purple-700 flex flex-row justify-center"
+                >
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
                   <path fill-rule="evenodd"
                     d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z"
@@ -311,15 +368,21 @@
               </a>
             </div>
           </div>
+          <div id="myModal5" class="modal">  
+            <div class="modal-content"> 
+              <span class="close">&times</span>
+              <p> Some tex in the modal</p>
+            </div>
+          </div>
         </div>
 
         <div class="shadow-lg rounded-lg py-3 transform transition hover:bg-indigo-50 hover:-translate-y-0.5 text-sm">
-          <a href="#">
-            <img src="./images/products/women/product2.jpg" class="rounded-tl-lg rounded-tr-lg" />
+          <a >
+            <img src="./images/products/wproduct2.jpg" class="rounded-tl-lg rounded-tr-lg" />
           </a>
           <div class="p-5">
             <div class="flex flex-column justify-between">
-              <h3><a href="#">Printed Wrap Dress</a> </h3>
+              <h3><a >Printed Wrap Dress</a> </h3>
               <div>Price <a class="price">$20</a></div>
             </div>
             <div class="flex flex-row my-3">
@@ -337,8 +400,8 @@
               <a class="border-gray-300 border-2 text-gray-400 rounded-md px-2 py-1 mr-2 text-xs" href="#">S</a>
             </div>
             <div class="flex flex-col xl:flex-row justify-between">
-              <a class="add-carts cart6 bg-gradient-to-r from-red-600 to-pink-500 rounded-full py-2 px-4 my-2 text-sm text-white hover:bg-pink-600 hover:from-pink-600 hover:to-pink-600 flex flex-row justify-center"
-                href="#">
+              <a class="cursor-pointer add-carts cart6 bg-gradient-to-r from-red-600 to-pink-500 rounded-full py-2 px-4 my-2 text-sm text-white hover:bg-pink-600 hover:from-pink-600 hover:to-pink-600 flex flex-row justify-center"
+             >
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" fill="none" viewBox="0 0 24 24"
                   stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -346,8 +409,8 @@
                 </svg>
                 Add to cart
               </a>
-              <a class="bg-purple-600 rounded-full py-2 px-4 my-2 text-sm text-white hover:bg-purple-700 flex flex-row justify-center"
-                href="#">
+              <a id="myBtn6" class="cursor-pointer bg-purple-600 rounded-full py-2 px-4 my-2 text-sm text-white hover:bg-purple-700 flex flex-row justify-center"
+               >
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
                   <path fill-rule="evenodd"
                     d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z"
@@ -357,11 +420,17 @@
               </a>
             </div>
           </div>
+          <div id="myModal6" class="modal">  
+            <div class="modal-content"> 
+              <span class="close">&times</span>
+              <p> Some tex in the modal</p>
+            </div>
+          </div>
         </div>
 
         <div class="shadow-lg rounded-lg py-3 transform transition hover:bg-indigo-50 hover:-translate-y-0.5 text-sm">
-          <a href="#">
-            <img src="./images/products/women/product3.jpg" class="rounded-tl-lg rounded-tr-lg" />
+          <a >
+            <img src="./images/products/wproduct3.jpg" class="rounded-tl-lg rounded-tr-lg" />
           </a>
           <div class="p-5">
             <div class="flex flex-column justify-between">
@@ -383,8 +452,8 @@
               <a class="border-gray-300 border-2 text-gray-400 rounded-md px-2 py-1 mr-2 text-xs" href="#">S</a>
             </div>
             <div class="flex flex-col xl:flex-row justify-between">
-              <a class="add-carts cart7 bg-gradient-to-r from-red-600 to-pink-500 rounded-full py-2 px-4 my-2 text-sm text-white hover:bg-pink-600 hover:from-pink-600 hover:to-pink-600 flex flex-row justify-center"
-                href="#">
+              <a class="cursor-pointer add-carts cart7 bg-gradient-to-r from-red-600 to-pink-500 rounded-full py-2 px-4 my-2 text-sm text-white hover:bg-pink-600 hover:from-pink-600 hover:to-pink-600 flex flex-row justify-center"
+                >
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" fill="none" viewBox="0 0 24 24"
                   stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -392,8 +461,8 @@
                 </svg>
                 Add to cart
               </a>
-              <a class="bg-purple-600 rounded-full py-2 px-4 my-2 text-sm text-white hover:bg-purple-700 flex flex-row justify-center"
-                href="#">
+              <a id="myBtn7" class="cursor-pointer bg-purple-600 rounded-full py-2 px-4 my-2 text-sm text-white hover:bg-purple-700 flex flex-row justify-center"
+               >
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
                   <path fill-rule="evenodd"
                     d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z"
@@ -403,11 +472,17 @@
               </a>
             </div>
           </div>
+          <div id="myModal7" class="modal">  
+            <div class="modal-content"> 
+              <span class="close">&times</span>
+              <p> Some tex in the modal</p>
+            </div>
+          </div>
         </div>
 
         <div class="shadow-lg rounded-lg  py-3 transform transition hover:bg-indigo-50 hover:-translate-y-0.5 text-sm">
           <a href="#">
-            <img src="./images/products/women/product4.jpg" class="rounded-tl-lg rounded-tr-lg" />
+            <img src="./images/products/wproduct4.jpg" class="rounded-tl-lg rounded-tr-lg" />
           </a>
           <div class="p-5">
             <div class="flex flex-column justify-between">
@@ -429,8 +504,8 @@
               <a class="border-gray-300 border-2 text-gray-400 rounded-md px-2 py-1 mr-2 text-xs" href="#">S</a>
             </div>
             <div class="flex flex-col xl:flex-row justify-between">
-              <a class="add-carts cart8 bg-gradient-to-r from-red-600 to-pink-500 rounded-full py-2 px-4 my-2 text-sm text-white hover:bg-pink-600 hover:from-pink-600 hover:to-pink-600 flex flex-row justify-center"
-                href="#">
+              <a class="cursor-pointer add-carts cart8 bg-gradient-to-r from-red-600 to-pink-500 rounded-full py-2 px-4 my-2 text-sm text-white hover:bg-pink-600 hover:from-pink-600 hover:to-pink-600 flex flex-row justify-center"
+               >
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" fill="none" viewBox="0 0 24 24"
                   stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -438,8 +513,8 @@
                 </svg>
                 Add to cart
               </a>
-              <a class="bg-purple-600 rounded-full py-2 px-4 my-2 text-sm text-white hover:bg-purple-700 flex flex-row justify-center"
-                href="#">
+              <a id="myBtn8"  class="cursor-pointer bg-purple-600 rounded-full py-2 px-4 my-2 text-sm text-white hover:bg-purple-700 flex flex-row justify-center"
+                >
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
                   <path fill-rule="evenodd"
                     d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z"
@@ -449,6 +524,12 @@
               </a>
             </div>
           </div>
+        </div>
+      </div>
+      <div id="myModal8" class="modal2">  
+        <div class="modal-content"> 
+          <span class="close">&times</span>
+          <p> Some tex in the modal</p>
         </div>
       </div>
     </div> <!-- Women's Collection Section -->
@@ -463,135 +544,123 @@
           <div>
             <input type="email" placeholder="Enter email address"
               class="bg-gray-600 text-gray-200 placeholder-gray-400 px-4 py-3 w-full rounded-lg focus:outline-none mb-4" />
-            <button type="submit" class="bg-red-600 py-3 rounded-lg w-full">Subscribe</button>
+            <button type="submit" class=" cursor-pointer bg-red-600 py-3 rounded-lg w-full">Subscribe</button>
           </div>
         </div>
       </div>
       <div class="lg:w-2/5 w-full lg:flex lg:flex-row hidden">
         <img src="./images/subscribe-banner.png" class="h-96" />
       </div>
+      ']
 
-      <!--Cart-Algo-->
-      <script>
+  <!-- Style for Multiple Modal exclude "TailWind" avoid redundant code -->
+      <style>
+        .modal{
+          background-color: rgba(136, 136, 136, 0.221);
+          display:none;
+          position: absolute; 
+          z-index:1000;
+           margin-top: 530px;
+          padding-top: 100px;
+          left:0;
+          top:0;
+          width: 100%;
+          height:600%;
+        
+         
+        
+        } 
+        .modal2{
+          background-color: rgba(136, 136, 136, 0.221);
+          display:none;
+          position: absolute; 
+          z-index:1000;
+           margin-top: 1200px;
+          padding-top: 100px;
+          left:0;
+          top:0;
+          width: 100%;
+          height:600%;
+        
+         
+        
+        } 
+        .modal-content{
+          background-color: #fefefe;
+          box-shadow: 2px 5px #0987c15f;
+         border-bottom-right-radius: #888888;
+          margin: 15% auto;
+          padding:20px;
+          border: 1px solid #888;
+          width:70%;
+          height: 10%;
+        }
+          .close{
+            color: #aaa;
+        float:right;
+        font-size: 28px;
+        font-weight:bold;
+          }
+          .close:hover,
+          .close:focus{
+            color:black;
+            text-decoration:none;
+            cursor:pointer;
+          }
+        
 
-        let products = [
-          {
-            name: "Mens T-Shirt",
-            price: 13,
-            inCart: 0
-          },
-          {
-            name: "Slim Khaki Tousers",
-            price: 33,
-            inCart: 0
-          },
-          {
-            name: "Nike Shoes",
-            price: 23,
-            inCart: 0
-          },
-          {
-            name: "Wrist Watch",
-            price: 135,
-            inCart: 0
-          },
-          {
-            name: "V Neck Tassel Cape",
-            price: 20,
-            inCart: 0
-          },
-          {
-            name: "Printed Wrap Dress",
-            price: 20,
-            inCart: 0
-          },
-          {
-            name: "Blue Denim Dress",
-            price: 35,
-            inCart: 0
-          },
-          {
-            name: "High Waist Denim Skirt",
-            price: 40,
-            inCart: 0
-          },
-        ]
-
-        let carts = document.querySelectorAll(".add-carts")
-        for (let i = 0; i < carts.length; i++) {
-          carts[i].addEventListener("click", () => {
-            cartNumbers(products[i]);
-            totalCost(products[i])
-          })
+        </style>
+ <!-- Modal logic -->
+        <script> 
+        var modal = document.getElementById("myModal")
+       var modal2 = document.getElementById("myModal8")
+        var btn= document.getElementById("myBtn");
+        var span =  document.getElementsByClassName("close")[0];
+        var btn2 = document.getElementById("myBtn2");
+        var btn3 = document.getElementById("myBtn3");
+        var btn4 = document.getElementById("myBtn4");
+        var btn5 = document.getElementById("myBtn5");
+        var btn6 = document.getElementById("myBtn6");
+        var btn7 = document.getElementById("myBtn7");
+        var btn8 = document.getElementById("myBtn8");
+       
+        btn8.onclick = function(){
+          modal2.style.display = "block"
+        }
+        btn7.onclick = function(){
+          modal2.style.display = "block"
+        }
+        btn6.onclick = function(){
+          modal2.style.display = "block"
+        }
+        btn5.onclick = function(){
+          modal2.style.display = "block"
+        }
+        btn4.onclick = function(){
+          modal.style.display = "block"
+        }
+        btn3.onclick = function(){
+          modal.style.display = "block"
+        }
+        btn2.onclick = function(){
+          modal.style.display = "block"
         }
 
-        function onLoadCartNumbers() {
-          let productNumbers = localStorage.getItem("cartNumbers")
-          if (productNumbers) {
-            document.querySelector(".smartCart span").textContent = productNumbers
-          }
-        }
-        function cartNumbers(product) {
-          console.log(product, "myname")
-          let productNumbers = localStorage.getItem("cartNumbers")
-          productNumbers = parseInt(productNumbers)
-
-          if (productNumbers) {
-            localStorage.setItem("cartNumbers", productNumbers + 1)
-            document.querySelector(".smartCart span").textContent = productNumbers + 1
-          }
-          else {
-            localStorage.setItem("cartNumbers", 1)
-            document.querySelector(".smartCart span").textContent = 1
-          }
-          setItems(product)
+        btn.onclick = function(){
+          modal.style.display = "block"
         }
 
-        function setItems(product) {
-          let cartItems = localStorage.getItem("productsInCart")
-          cartItems = JSON.parse(cartItems)
-
-
-
-          if (cartItems != null) {
-
-            if (cartItems[product.name] == undefined) {
-              cartItems = {
-                ...cartItems,
-                [product.name]: product
-              }
-            }
-            cartItems[product.name].inCart += 1
+        window.onclick = function(event){
+          if(event.target == modal){
+            modal.style.display = "none"
           }
-          else {
-            product.inCart = 1
-            cartItems = {
-              [product.name]: product
-            }
+          if(event.target == modal2){
+            modal2.style.display = "none"
           }
-
-
-          localStorage.setItem("productsInCart", JSON.stringify(cartItems))
         }
-
-        function totalCost(product) {
-          //console.log("The product price is", product.price)
-
-          let cartCost = localStorage.getItem("totalCost")
-          cartCost = parseInt(cartCost)
-          console.log("my cart", cartCost)
-
-
-          if (cartCost != null) {
-            cartCost = parseInt(cartCost)
-            localStorage.setItem("totalCost", cartCost + product.price)
-          } else {
-            localStorage.setItem("totalCost", product.price)
-          }
-
-        }
-
-        onLoadCartNumbers()
+    
+        </script>
+      <script src="cart.js">
       </script>
 
     </div><!-- Newsletter Section -->

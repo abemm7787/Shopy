@@ -16,42 +16,106 @@
     <header>
         <nav>
 
-            <img class="w-full h-48 object-cover" src="./images/yg-beautiful.png" alt="Flower and sky"/>
+            <img class="w-full h-48 object-cover" src="./images/yg-beautiful.png" alt="Flower and sky" />
             <div class="px-6 py-4 absolute left-0 top-0">
-              <h4 class="hover:text-red-700 font-semibold text-white tracking-tight text-xl mb-3"></h4>
-             
-            <ul>
-                <div class="flex flex-row justify-center">
-                <li> <a href="index.html">Home</a></li>
-                <li class="cart ">
-                    <a href="cart.html" class="smartCart"> <svg xmlns="http://www.w3.org/2000/svg"
-                            class="h-5 w-5 sm:h-6 sm:w-6 inline-block" fill="none" viewBox="0 0 24 24"
-                            stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
-                        </svg> Cart (<span>0</span>)</a>
-                        </div>
-                </li>
-            </ul>
+                <ul>
+                    <div class="flex flex-row justify-between">
+                        <li> <a href="index.html">Home</a></li>
+                        <li class="cart">
+                            <a href="cart.html" class="smartCart"> <svg xmlns="http://www.w3.org/2000/svg"
+                                    class="h-5 w-5 sm:h-6 sm:w-6 inline-block" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                                </svg> Cart (<span>0</span>)</a>
+                    </div>
+                    </li>
+                </ul>
         </nav>
 
     </header>
 
-    <div class="products-container max-w-xl justify-around m-0 my-2">
-        <div class="products-header w-96 max-w-6xl justify-start border border-y-4 border-indigo-600 ">
-            <h5 class="product-title w-44">Product</h5>
-            <h5 class="price w-60">Price</h5>
-            <h5 class="quantity"> Quantity</h5>
-            <h5 class="total">Total</h5>
-            <div class="product"></div>
+    <div class="products max-w-fit flex justify-center m-0 my-2 ">
+        <div
+            class="products-header w-full flex flex-row my-3  bg-gray-100 shadow-xl">
+            <h5 class="product-title mx-7 w-28">Products
+                <button onclick="removeMe()">x</button>
+                <div class=" products-container "></div>
+            </h5>
+            <h5 id="product-list" class="bg-slate-500  product-price-container">Price</h5>
+            <div class="mr-10 quanity-Products">Quantity</div>
+            <h5 class="total mr-10">Sub Total</h5>
+       <div>
+            <h5>Total</h5>
+            $<div class="completeTotal"></div>
         </div>
+        </div>
+
     </div>
+    <script> 
+  
+    
+let completeTotal = document.querySelector(".completeTotal")  
+var sumOfProduct = 0
+  Object.values(cartItems).forEach(item => {
+     sumOfProduct  += item.price * item.inCart
+    completeTotal.innerHTML = sumOfProduct  
+     console.log(sumOfProduct)
+      })
+        
+    function removeMe(name) {
+            let cartItems = localStorage.getItem("productsInCart")
+            var cartSpan = document.getElementsByClassName("smartCart")
+            var cartNumber = localStorage.getItem("cartNumbers")
+            cartItems = JSON.parse(cartItems)
+            cartNumber = JSON.parse(cartNumber)
+            var nameSpan = document.getElementById("name-span")
+            var imageTag = document.getElementById("tag-img")
+            var priceSpan = document.getElementById("price-span")
+            var inCartSpan = document.getElementById("inCart-span")
+            var totalDiv = document.getElementById("total-div")
+            var product = document.querySelector(".smartCart span").textContent
+            var myproduct = JSON.parse(product)
+            let lengthTotal = document.querySelector(".completeTotal") 
+        
 
 
+var sumOfProduct = 0
+  Object.values(cartItems).forEach(item => {
+    completeTotal -= item.price * item.inCart
+    completeTotal.innerHTML = sumOfProduct  
+     console.log(sumOfProduct)
+      })
+
+            const cartTotal = Object.keys(cartItems).forEach(key => {
+                lengthTotal.innerHTML  = cartItems[key].price *  cartItems[key].inCart
+               console.log(lengthTotal.innerHTML)
+                     
+            })
+
+            // removes items from local storage
+            const result = Object.keys(cartItems).filter(key => {
+                if (cartItems[key].name === nameSpan.innerHTML || cartItems[key].name === nameSpan.innerHTML) {
+                    let word = delete cartItems[key]
+                    cartNumber -= inCartSpan.innerHTML
+                    let cartJson = JSON.stringify(cartItems)
+                    let cartNumberJson = JSON.stringify(cartNumber)
+                    localStorage.setItem("productsInCart", cartJson)
+                    localStorage.setItem("cartNumbers", cartNumberJson)
+
+                }
+
+            });
 
 
+            nameSpan.remove()
+            imageTag.remove()
+            priceSpan.remove()
+            inCartSpan.remove()
+            totalDiv.remove()
 
-
+        }
+        removeMe()
+    </script>
+    <script src="cart.js"></script>
 </body>
-
-</html>
