@@ -114,6 +114,26 @@ var sumOfProduct = 0
             inCartSpan.remove()
             totalDiv.remove()
 
+              function shopCartNumber(product) {
+
+  let productNumbers = localStorage.getItem("cartNumbers")
+  productNumbers = parseInt(productNumbers)
+
+  if (productNumbers) {
+    localStorage.setItem("cartNumbers", productNumbers - 1)
+    document.querySelector(".smartCart span").textContent = productNumbers - 1
+  }
+  
+  if(  document.querySelector(".smartCart span").textContent < 0) {
+
+    document.querySelector(".smartCart span").textContent = 0
+    localStorage.setItem("cartNumbers", productNumbers = 0) 
+}
+  setItems(product)
+}
+
+shopCartNumber()
+
         }
         removeMe()
     </script>
