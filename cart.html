@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cava Web 3.0</title>
+    <link rel="stylesheet" href="./css/tailwind.css" />
+</head>
+
+
+
+<body>
+
+    <header>
+        <nav>
+
+            <img class="w-full h-48 object-cover" src="./images/yg-beautiful.png" alt="Flower and sky" />
+            <div class="px-6 py-4 absolute left-0 top-0">
+                <ul>
+                    <div class="flex flex-row justify-between">
+                        <li> <a href="index.html">Home</a></li>
+                        <li class="cart">
+                            <a href="cart.html" class="smartCart"> <svg xmlns="http://www.w3.org/2000/svg"
+                                    class="h-5 w-5 sm:h-6 sm:w-6 inline-block" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                                </svg> Cart (<span>0</span>)</a>
+                    </div>
+                    </li>
+                </ul>
+        </nav>
+
+    </header>
+
+    <div class="products max-w-fit flex justify-center m-0 my-2 ">
+        <div
+            class="products-header w-full flex flex-row my-3  bg-gray-100 shadow-xl">
+            <h5 class="product-title mx-7 w-28">Products
+                <button onclick="removeMe()">x</button>
+                <div class=" products-container "></div>
+            </h5>
+            <h5 id="product-list" class="bg-slate-500  product-price-container">Price</h5>
+            <div class="mr-10 quanity-Products">Quantity</div>
+            <h5 class="total mr-10">Sub Total</h5>
+       <div>
+            <h5>Total</h5>
+            $<div class="completeTotal"></div>
+        </div>
+        </div>
+
+    </div>
+    <script> 
+  
+    
+let completeTotal = document.querySelector(".completeTotal")  
+var sumOfProduct = 0
+  Object.values(cartItems).forEach(item => {
+     sumOfProduct  += item.price * item.inCart
+    completeTotal.innerHTML = sumOfProduct  
+     console.log(sumOfProduct)
+      })
+        
+    function removeMe(name) {
+            let cartItems = localStorage.getItem("productsInCart")
+            var cartSpan = document.getElementsByClassName("smartCart")
+            var cartNumber = localStorage.getItem("cartNumbers")
+            cartItems = JSON.parse(cartItems)
+            cartNumber = JSON.parse(cartNumber)
+            var nameSpan = document.getElementById("name-span")
+            var imageTag = document.getElementById("tag-img")
+            var priceSpan = document.getElementById("price-span")
+            var inCartSpan = document.getElementById("inCart-span")
+            var totalDiv = document.getElementById("total-div")
+            var product = document.querySelector(".smartCart span").textContent
+            var myproduct = JSON.parse(product)
+            let lengthTotal = document.querySelector(".completeTotal") 
+        
+
+
+var sumOfProduct = 0
+  Object.values(cartItems).forEach(item => {
+    completeTotal -= item.price * item.inCart
+    completeTotal.innerHTML = sumOfProduct  
+     console.log(sumOfProduct)
+      })
+
+            const cartTotal = Object.keys(cartItems).forEach(key => {
+                lengthTotal.innerHTML  = cartItems[key].price *  cartItems[key].inCart
+               console.log(lengthTotal.innerHTML)
+                     
+            })
+
+            // removes items from local storage
+            const result = Object.keys(cartItems).filter(key => {
+                if (cartItems[key].name === nameSpan.innerHTML || cartItems[key].name === nameSpan.innerHTML) {
+                    let word = delete cartItems[key]
+                    cartNumber -= inCartSpan.innerHTML
+                    let cartJson = JSON.stringify(cartItems)
+                    let cartNumberJson = JSON.stringify(cartNumber)
+                    localStorage.setItem("productsInCart", cartJson)
+                    localStorage.setItem("cartNumbers", cartNumberJson)
+
+                }
+
+            });
+
+
+            nameSpan.remove()
+            imageTag.remove()
+            priceSpan.remove()
+            inCartSpan.remove()
+            totalDiv.remove()
+
+              function shopCartNumber(product) {
+
+  let productNumbers = localStorage.getItem("cartNumbers")
+  productNumbers = parseInt(productNumbers)
+
+  if (productNumbers) {
+    localStorage.setItem("cartNumbers", productNumbers - 1)
+    document.querySelector(".smartCart span").textContent = productNumbers - 1
+  }
+  
+  if(  document.querySelector(".smartCart span").textContent < 0) {
+
+    document.querySelector(".smartCart span").textContent = 0
+    localStorage.setItem("cartNumbers", productNumbers = 0) 
+}
+  setItems(product)
+}
+
+shopCartNumber()
+
+        }
+        removeMe()
+    </script>
+    <script src="cart.js"></script>
+</body>
