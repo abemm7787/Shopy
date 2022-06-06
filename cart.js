@@ -1,50 +1,50 @@
 let products = [
   {
     name: "Mens T-Shirt",
-    price: 13,
+    price: 23,
     inCart: 0,
     tag: "product1.jpg"
 
   },
   {
-    name: "Slim Khaki Tousers",
+    name: "Slim Cut Jeans",
     price: 33,
     inCart: 0,
     tag: "product2.jpg"
   },
   {
-    name: "Nike Shoes",
-    price: 23,
+    name: "AirForce Canvas",
+    price: 120,
     inCart: 0,
     tag: "product3.jpg",
   },
   {
-    name: "Wrist Watch",
-    price: 135,
+    name: "Smart Watch V20 Classich",
+    price: 435,
     inCart: 0,
     tag: "product4.jpg",
   },
   {
     name: "V Neck Tassel Cape",
-    price: 20,
+    price: 65,
     inCart: 0,
     tag: "wproduct1.jpg",
   },
   {
-    name: "Printed Wrap Dress",
-    price: 20,
+    name: "Wrapped Dress Shoes",
+    price: 65,
     inCart: 0,
     tag: "wproduct2.jpg",
   },
   {
     name: "Blue Denim Dress",
-    price: 35,
+    price: 85,
     inCart: 0,
     tag: "wproduct3.jpg",
   },
   {
-    name: "High Waist Denim Skirt",
-    price: 40,
+    name: "Low Printed Dress",
+    price: 85,
     inCart: 0,
     tag: "wproduct4.jpg",
   },

@@ -39,7 +39,17 @@
         <div
             class="products-header w-full flex flex-row my-3  bg-gray-100 shadow-xl">
             <h5 class="product-title mx-7 w-28">Products
-                <button onclick="removeMe()">x</button>
+              
+                <a onclick="removeMe()"
+                class="cursor-pointer  cart1 bg-gradient-to-r from-red-600 to-pink-500 rounded-full py-2 px-4 my-2 text-sm text-white hover:bg-pink-600 hover:from-pink-600 hover:to-pink-600 flex flex-row justify-center">
+                <svg  class="h-5 w-5 mr-1" fill="none" viewBox="0 0 24 24"
+                  stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                </svg>
+                Remove--
+              </a>
+              
                 <div class=" products-container "></div>
             </h5>
             <h5 id="product-list" class="bg-slate-500  product-price-container">Price</h5>
@@ -54,7 +64,11 @@
     </div>
     <script> 
   
-    
+    //Sum Total
+
+    let cartItems = localStorage.getItem("productsInCart")   
+      cartItems = JSON.parse(cartItems)
+
 let completeTotal = document.querySelector(".completeTotal")  
 var sumOfProduct = 0
   Object.values(cartItems).forEach(item => {
@@ -62,8 +76,12 @@ var sumOfProduct = 0
     completeTotal.innerHTML = sumOfProduct  
      console.log(sumOfProduct)
       })
-        
-    function removeMe(name) {
+   
+
+     var objectKey = Object.keys(cartItems).shift()
+console.log(objectKey)
+
+    function removeMe() {
             let cartItems = localStorage.getItem("productsInCart")
             var cartSpan = document.getElementsByClassName("smartCart")
             var cartNumber = localStorage.getItem("cartNumbers")
@@ -79,33 +97,51 @@ var sumOfProduct = 0
             let lengthTotal = document.querySelector(".completeTotal") 
         
 
+// remove Total 
 
-var sumOfProduct = 0
-  Object.values(cartItems).forEach(item => {
-    completeTotal -= item.price * item.inCart
-    completeTotal.innerHTML = sumOfProduct  
-     console.log(sumOfProduct)
-      })
+
+
+
+// var sumOfProduct = 0
+//   Object.values(cartItems).forEach(item => {
+//     completeTotal -= item.price * item.inCart
+//     completeTotal.innerHTML = sumOfProduct  
+//      console.log(sumOfProduct)
+//       })
 
             const cartTotal = Object.keys(cartItems).forEach(key => {
-                lengthTotal.innerHTML  = cartItems[key].price *  cartItems[key].inCart
-               console.log(lengthTotal.innerHTML)
-                     
+               
+                if(cartItems[objectKey].price === cartItems[key].price){
+            let obj =  lengthTotal.innerHTML -= cartItems[objectKey].price  *  cartItems[key].inCart
+            let word = cartItems[objectKey]
+            let cartJson = JSON.stringify(cartItems)
+            localStorage.setItem("productsInCart", cartJson)
+        
+        }
+      
+            
+              if(lengthTotal.innerHTML < 0){
+                  lengthTotal.innerHTML = 0
+              }
+             
+     
             })
-
+         
             // removes items from local storage
-            const result = Object.keys(cartItems).filter(key => {
-                if (cartItems[key].name === nameSpan.innerHTML || cartItems[key].name === nameSpan.innerHTML) {
-                    let word = delete cartItems[key]
-                    cartNumber -= inCartSpan.innerHTML
-                    let cartJson = JSON.stringify(cartItems)
-                    let cartNumberJson = JSON.stringify(cartNumber)
-                    localStorage.setItem("productsInCart", cartJson)
-                    localStorage.setItem("cartNumbers", cartNumberJson)
+//             const result = Object.keys(cartItems).filter(key => {
+//                 if (cartItems[key].name === nameSpan.innerHTML || cartItems[key].name === nameSpan.innerHTML) {
+//                     let word = delete cartItems[key]
+// console.log(word)
+                    
+//                     cartNumber -= inCartSpan.innerHTML
+//                     let cartJson = JSON.stringify(cartItems)
+//                     let cartNumberJson = JSON.stringify(cartNumber)
+//                     localStorage.setItem("productsInCart", cartJson)
+//                     localStorage.setItem("cartNumbers", cartNumberJson)
 
-                }
+//                 }
 
-            });
+//             });
 
 
             nameSpan.remove()
@@ -114,25 +150,25 @@ var sumOfProduct = 0
             inCartSpan.remove()
             totalDiv.remove()
 
-              function shopCartNumber(product) {
+//               function shopCartNumber(product) {
 
-  let productNumbers = localStorage.getItem("cartNumbers")
-  productNumbers = parseInt(productNumbers)
+//   let productNumbers = localStorage.getItem("cartNumbers")
+//   productNumbers = parseInt(productNumbers)
 
-  if (productNumbers) {
-    localStorage.setItem("cartNumbers", productNumbers - 1)
-    document.querySelector(".smartCart span").textContent = productNumbers - 1
-  }
+//   if (productNumbers) {
+//     localStorage.setItem("cartNumbers", productNumbers - 1)
+//     document.querySelector(".smartCart span").textContent = productNumbers - 1
+//   }
   
-  if(  document.querySelector(".smartCart span").textContent < 0) {
+//   if(  document.querySelector(".smartCart span").textContent < 0) {
 
-    document.querySelector(".smartCart span").textContent = 0
-    localStorage.setItem("cartNumbers", productNumbers = 0) 
-}
-  setItems(product)
-}
+//     document.querySelector(".smartCart span").textContent = 0
+//     localStorage.setItem("cartNumbers", productNumbers = 0) 
+// }
+//   setItems(product)
+// }
 
-shopCartNumber()
+// shopCartNumber()
 
         }
         removeMe()
