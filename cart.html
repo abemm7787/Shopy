@@ -102,12 +102,12 @@ console.log(objectKey)
 
 
 
-// var sumOfProduct = 0
-//   Object.values(cartItems).forEach(item => {
-//     completeTotal -= item.price * item.inCart
-//     completeTotal.innerHTML = sumOfProduct  
-//      console.log(sumOfProduct)
-//       })
+var sumOfProduct = 0
+  Object.values(cartItems).forEach(item => {
+    completeTotal -= item.price * item.inCart
+    completeTotal.innerHTML = sumOfProduct  
+     console.log(sumOfProduct)
+      })
 
             const cartTotal = Object.keys(cartItems).forEach(key => {
                
@@ -127,21 +127,21 @@ console.log(objectKey)
      
             })
          
-            // removes items from local storage
-//             const result = Object.keys(cartItems).filter(key => {
-//                 if (cartItems[key].name === nameSpan.innerHTML || cartItems[key].name === nameSpan.innerHTML) {
-//                     let word = delete cartItems[key]
-// console.log(word)
+          //  removes items from local storage
+            const result = Object.keys(cartItems).filter(key => {
+                if (cartItems[key].name === nameSpan.innerHTML || cartItems[key].name === nameSpan.innerHTML) {
+                    let word = delete cartItems[key]
+console.log(word)
                     
-//                     cartNumber -= inCartSpan.innerHTML
-//                     let cartJson = JSON.stringify(cartItems)
-//                     let cartNumberJson = JSON.stringify(cartNumber)
-//                     localStorage.setItem("productsInCart", cartJson)
-//                     localStorage.setItem("cartNumbers", cartNumberJson)
+                    cartNumber -= inCartSpan.innerHTML
+                    let cartJson = JSON.stringify(cartItems)
+                    let cartNumberJson = JSON.stringify(cartNumber)
+                    localStorage.setItem("productsInCart", cartJson)
+                    localStorage.setItem("cartNumbers", cartNumberJson)
 
-//                 }
+                }
 
-//             });
+            });
 
 
             nameSpan.remove()
@@ -150,25 +150,25 @@ console.log(objectKey)
             inCartSpan.remove()
             totalDiv.remove()
 
-//               function shopCartNumber(product) {
+              function shopCartNumber(product) {
 
-//   let productNumbers = localStorage.getItem("cartNumbers")
-//   productNumbers = parseInt(productNumbers)
+  let productNumbers = localStorage.getItem("cartNumbers")
+  productNumbers = parseInt(productNumbers)
 
-//   if (productNumbers) {
-//     localStorage.setItem("cartNumbers", productNumbers - 1)
-//     document.querySelector(".smartCart span").textContent = productNumbers - 1
-//   }
+  if (productNumbers) {
+    localStorage.setItem("cartNumbers", productNumbers - 1)
+    document.querySelector(".smartCart span").textContent = productNumbers - 1
+  }
   
-//   if(  document.querySelector(".smartCart span").textContent < 0) {
+  if(  document.querySelector(".smartCart span").textContent < 0) {
 
-//     document.querySelector(".smartCart span").textContent = 0
-//     localStorage.setItem("cartNumbers", productNumbers = 0) 
-// }
-//   setItems(product)
-// }
+    document.querySelector(".smartCart span").textContent = 0
+    localStorage.setItem("cartNumbers", productNumbers = 0) 
+}
+  setItems(product)
+}
 
-// shopCartNumber()
+shopCartNumber()
 
         }
         removeMe()

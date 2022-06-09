@@ -25,7 +25,7 @@ let products = [
     tag: "product4.jpg",
   },
   {
-    name: "V Neck Tassel Cape",
+    name: "Tarabell Dress",
     price: 65,
     inCart: 0,
     tag: "wproduct1.jpg",
@@ -37,7 +37,7 @@ let products = [
     tag: "wproduct2.jpg",
   },
   {
-    name: "Blue Denim Dress",
+    name: "Blue Denuim Jeans",
     price: 85,
     inCart: 0,
     tag: "wproduct3.jpg",
